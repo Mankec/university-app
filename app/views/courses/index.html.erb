@@ -14,7 +14,9 @@
           <p>A thorought intro to Computer Science. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt adipisci nihil culpa nobis mollitia! Sint dolore soluta, placeat dolorum odio deleniti, odit tenetur quisquam hic enim ratione ipsam, quod vitae!</p>
         </div>
         <div class="card-action">
-          <a href="#">Enroll</a>
+          <% if logged_in? && !(current_user.courses.include?(course)) %>
+            <%= link_to "Enroll", "course_enroll_path(course_id: course.id)", method: :post %>
+          <% end %>
           <a href="#">Info</a>
         </div>
       </div>
